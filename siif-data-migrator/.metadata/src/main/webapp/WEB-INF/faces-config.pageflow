@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14821074640950" configfile="/siif-data-migrator/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="178" id="pf14821074764231" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14821074764232 pf14821074764243" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/home.xhtml" x="338" y="178" id="pf14821074764244" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14821074764232 pf14821074764243" path="/pages/home.xhtml"/>
+  <links id="pf14821074764232" target="pf14821074764244" source="pf14821074764231" fromaction="#{loginController.goToHome}"/>
+  <links id="pf14821074764243" target="pf14821074764244" source="pf14821074764231" fromaction="#{loginController.importDbInfo}"/>
+</pageflow:Pageflow>

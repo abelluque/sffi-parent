@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="../template/ui.xhtml">
+
+	<ui:define name="body">
+		<h:form id="form">
+			<p:growl id="growl" showSummary="true" showDetail="true"
+				autoUpdate="true" />
+
+			<p:timeline id="timeline" value="#{basicTimelineView.model}"
+				height="250px" selectable="#{basicTimelineView.selectable}"
+				zoomable="#{basicTimelineView.zoomable}"
+				moveable="#{basicTimelineView.moveable}"
+				stackEvents="#{basicTimelineView.stackEvents}"
+				axisOnTop="#{basicTimelineView.axisOnTop}"
+				eventStyle="#{basicTimelineView.eventStyle}"
+				showCurrentTime="#{basicTimelineView.showCurrentTime}"
+				showNavigation="#{basicTimelineView.showNavigation}">
+
+				<p:ajax event="select" listener="#{basicTimelineView.onSelect}" />
+
+			</p:timeline>
+		</h:form>
+	</ui:define>
+</ui:composition>

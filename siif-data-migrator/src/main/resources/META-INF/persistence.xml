@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="siif-pu" transaction-type="RESOURCE_LOCAL">
+		<description>
+            Persistence unit for Sistema Integral de Informacion Fiscal
+        </description>
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+	</persistence-unit>
+	
+	<persistence-unit name="mpfUsers-pu" transaction-type="RESOURCE_LOCAL">
+		<description>
+            Persistence unit for MPF-Users
+        </description>
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+	</persistence-unit>
+
+</persistence>
