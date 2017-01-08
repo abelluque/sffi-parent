@@ -11,30 +11,15 @@
 
 	<name>Web App Module for SIIF</name>
 
+	<properties>
+		<drools.version>6.0.1.Final</drools.version>
+		<jbpm.version>6.0.0.SNAPSHOT</jbpm.version>
+		<junit.version>4.11</junit.version>
+		<cfx.version>2.7.0.redhat-610379</cfx.version>
+	</properties>
+
 	<build>
-
 		<finalName>siif-web-${project.version}</finalName>
-
-		<plugins>
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-compiler-plugin</artifactId> -->
-<!-- 				<version>3.1</version> -->
-<!-- 				<configuration> -->
-<!-- 					<source>1.8</source> -->
-<!-- 					<target>1.8</target> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
-
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-war-plugin</artifactId> -->
-<!-- 				<version>2.6</version> -->
-<!-- 				<configuration> -->
-<!-- 					<failOnMissingWebXml>false</failOnMissingWebXml> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
-		</plugins>
 	</build>
 
 	<repositories>
@@ -46,6 +31,26 @@
 		</repository>
 	</repositories>
 
+	<dependencyManagement>
+		<dependencies>
+
+			<dependency>
+				<groupId>org.drools</groupId>
+				<artifactId>drools-bom</artifactId>
+				<type>pom</type>
+				<version>${drools.version}</version>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.jbpm</groupId>
+				<artifactId>jbpm-bom</artifactId>
+				<type>pom</type>
+				<version>${drools.version}</version>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
 	<dependencies>
 		<!-- Spring -->
 		<dependency>
@@ -53,13 +58,6 @@
 			<artifactId>spring-context</artifactId>
 			<version>4.1.7.RELEASE</version>
 		</dependency>
-		<!-- Spring security -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>4.0.1.RELEASE</version>
-		</dependency>
-
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -98,7 +96,35 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.3</version>
 		</dependency>
-
+		<!-- Security with Apache Shiro -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<!-- Shiro uses SLF4J for logging. We'll use the 'simple' binding in this 
+			example app. See http://www.slf4j.org for more info. -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.6.1</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- JBPM -->
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-bpmn2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-persistence-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-runtime-manager</artifactId>
+		</dependency>
+		
 		<!-- JUnit Dependencies -->
 		<dependency>
 			<groupId>junit</groupId>

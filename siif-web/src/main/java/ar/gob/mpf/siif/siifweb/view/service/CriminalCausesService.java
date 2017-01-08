@@ -37,7 +37,7 @@ public class CriminalCausesService {
 	private List<Actuacion> createActuaciones() {
 		List<Actuacion> actuaciones = new ArrayList<Actuacion>();
 		Actuacion actuacion = new Actuacion();
-		actuacion.setTipoActuacion("Pericia de " + this.getNombresRamdon());
+//		actuacion.setTipoActuacion("Pericia de " + this.getNombresRamdon());
 		actuaciones.add(actuacion);
 		
 		return actuaciones;
